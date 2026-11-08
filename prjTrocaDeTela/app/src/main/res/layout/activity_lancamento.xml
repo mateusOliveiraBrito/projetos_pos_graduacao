@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LancamentoActivity">
+
+    <TextView
+        android:id="@+id/txtCodigo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Cód"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edTxtCodigo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Código do produto"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txtCodigo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtQtd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Qtd"
+        app:layout_constraintEnd_toEndOf="@id/txtCodigo"
+        app:layout_constraintStart_toStartOf="@id/txtCodigo"
+        app:layout_constraintTop_toBottomOf="@id/txtCodigo" />
+
+    <EditText
+        android:id="@+id/edTxtQuantidade"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Quantidade do Produto"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txtCodigo"
+        app:layout_constraintTop_toTopOf="@id/txtQtd" />
+
+    <TextView
+        android:id="@+id/txtValor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Valor"
+        app:layout_constraintEnd_toEndOf="@id/txtQtd"
+        app:layout_constraintStart_toStartOf="@id/txtQtd"
+        app:layout_constraintTop_toBottomOf="@id/txtQtd" />
+
+    <EditText
+        android:id="@+id/edTxtValor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Valor do Produto"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txtValor"
+        app:layout_constraintTop_toTopOf="@id/txtValor" />
+
+    <Button
+        android:id="@+id/btnConfirmar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Confirmar"
+        app:layout_constraintEnd_toStartOf="@id/btnListar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtValor" />
+
+    <Button
+        android:id="@+id/btnListar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Listar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnConfirmar"
+        app:layout_constraintTop_toBottomOf="@id/txtValor" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
