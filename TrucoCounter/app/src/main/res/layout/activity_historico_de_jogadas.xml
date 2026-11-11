@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HistoricoDeJogadasActivity">
+
+    <TextView
+        android:id="@+id/tv_label_tela_historico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Histórico de Jogadas"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_label_jogador_1_historico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Jogador 1:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_tela_historico" />
+
+    <TextView
+        android:id="@+id/tv_vitorias_jogador_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text=""
+        android:textAppearance="@android:style/TextAppearance.Large"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_label_jogador_1_historico"
+        app:layout_constraintStart_toEndOf="@+id/tv_label_jogador_1_historico"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_jogador_1_historico"
+        tools:text="00" />
+
+    <TextView
+        android:id="@+id/tv_label_jogador_2_historico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Jogador 2:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/tv_label_jogador_1_historico"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_jogador_1_historico" />
+
+    <TextView
+        android:id="@+id/tv_vitorias_jogador_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text=""
+        android:textAppearance="@android:style/TextAppearance.Large"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_label_jogador_2_historico"
+        app:layout_constraintStart_toEndOf="@+id/tv_label_jogador_2_historico"
+        app:layout_constraintTop_toTopOf="@+id/tv_label_jogador_2_historico"
+        tools:text="00" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
