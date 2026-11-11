@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btnHistoricoDeJogadas: Button
+    private lateinit var btnInformarNomes: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,10 +27,20 @@ class MainActivity : AppCompatActivity() {
         this.btnHistoricoDeJogadas.setOnClickListener {
             btnHistoricoDeJogadasClick()
         }
+
+        this.btnInformarNomes = findViewById(R.id.btn_informar_nomes)
+        this.btnInformarNomes.setOnClickListener {
+            btnInformarNomesClick()
+        }
     }
 
     fun btnHistoricoDeJogadasClick() {
         val intent = Intent(this, HistoricoDeJogadasActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun btnInformarNomesClick() {
+        val intent = Intent(this, InformarNomesActivity::class.java)
         startActivity(intent)
     }
 }
