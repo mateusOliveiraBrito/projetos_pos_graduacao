@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">TrucoCounter</string>
+    <string name="label_default_jogador_1">Jogador 1:</string>
+    <string name="pontuacao_1">+1</string>
+    <string name="label_default_jogador_2">Jogador 2:</string>
+    <string name="pontuacao_3">+3</string>
+    <string name="pontuacao_6">+6</string>
+    <string name="pontuacao_9">+9</string>
+    <string name="pontuacao_12">+12</string>
+    <string name="label_btn_historico_de_jogadas">Histórico de Jogadas</string>
+    <string name="label_btn_zerar_historico">Zerar Histórico</string>
+    <string name="label_btn_informar_nomes">Informar Nomes</string>
+    <string name="label_nomes_dos_jogadores">Nomes dos Jogadores</string>
+    <string name="label_input_nome_do_jogador_1">Nome do jogador 1</string>
+    <string name="label_input_nome_do_jogador_2">Nome do jogador 2</string>
+    <string name="label_btn_confirmar">Confirmar</string>
+    <string name="label_historico_de_jogadas">Histórico de Jogadas</string>
 </resources>
