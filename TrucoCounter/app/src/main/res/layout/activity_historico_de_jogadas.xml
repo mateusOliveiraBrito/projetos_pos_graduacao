@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".HistoricoDeJogadasActivity">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/label_historico_de_jogadas"
         android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +27,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/label_default_jogador_1"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +40,7 @@
         android:layout_marginStart="8dp"
         android:text=""
         android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tv_label_jogador_1_historico"
         app:layout_constraintStart_toEndOf="@+id/tv_label_jogador_1_historico"
         app:layout_constraintTop_toTopOf="@+id/tv_label_jogador_1_historico"
@@ -48,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/label_default_jogador_2"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/tv_label_jogador_1_historico"
@@ -60,6 +65,7 @@
         android:layout_marginStart="8dp"
         android:text=""
         android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tv_label_jogador_2_historico"
         app:layout_constraintStart_toEndOf="@+id/tv_label_jogador_2_historico"
         app:layout_constraintTop_toTopOf="@+id/tv_label_jogador_2_historico"

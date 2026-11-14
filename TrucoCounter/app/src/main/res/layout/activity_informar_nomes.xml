@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".InformarNomesActivity">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/label_nomes_dos_jogadores"
         android:textAppearance="@android:style/TextAppearance.Large"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,6 +28,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/label_input_nome_do_jogador_1"
+        app:boxStrokeColor="@color/red"
+        app:cursorColor="@color/red"
+        app:hintTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_label_tela_nomes"
@@ -44,6 +49,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="@string/label_input_nome_do_jogador_2"
+        app:boxStrokeColor="@color/red"
+        app:cursorColor="@color/red"
+        app:hintTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="@id/input_nome_jogador_1"
         app:layout_constraintStart_toStartOf="@id/input_nome_jogador_1"
         app:layout_constraintTop_toBottomOf="@id/input_nome_jogador_1"
@@ -61,7 +69,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
+        android:backgroundTint="@color/white"
         android:text="@string/label_btn_confirmar"
+        android:textColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_nome_jogador_2" />
