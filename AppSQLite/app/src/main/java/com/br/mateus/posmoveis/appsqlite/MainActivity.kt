@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        this.banco = DatabaseHandler(this)
+        this.banco = DatabaseHandler.getInstance(this)
 
         this.binding.btnIncluir.setOnClickListener {
             btnIncluirClick()
