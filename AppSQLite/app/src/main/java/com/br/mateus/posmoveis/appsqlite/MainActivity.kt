@@ -9,13 +9,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.br.mateus.posmoveis.appsqlite.database.DatabaseHandler
 import com.br.mateus.posmoveis.appsqlite.databinding.ActivityMainBinding
+import com.br.mateus.posmoveis.appsqlite.entity.Cadastro
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    private lateinit var banco: SQLiteDatabase
+    private lateinit var banco: DatabaseHandler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,13 +32,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        this.banco = openOrCreateDatabase("banco.db", MODE_PRIVATE, null)
-        this.banco.execSQL(
-            "CREATE TABLE IF NOT EXISTS cadastro( " +
-                    "_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "nome TEXT," +
-                    "telefone TEXT)"
-        )
+        this.banco = DatabaseHandler(this)
 
         this.binding.btnIncluir.setOnClickListener {
             btnIncluirClick()
@@ -60,74 +56,55 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun btnIncluirClick() {
-        Toast.makeText(this, "TESTE", Toast.LENGTH_SHORT).show()
+        val cadastro = Cadastro(
+            0,
+            binding.edTxtNome.text.toString(),
+            binding.edTxtTelefone.text.toString(),
+        )
 
-        val registro = ContentValues()
-        registro.put("nome", this.binding.edTxtNome.text.toString())
-        registro.put("telefone", this.binding.edTxtTelefone.text.toString())
-
-        banco.insert("cadastro", null, registro)
+        banco.inserir(cadastro)
 
         Toast.makeText(this, "Sucesso", Toast.LENGTH_SHORT).show()
     }
 
     fun btnAlterarClick() {
-        val registro = ContentValues()
-        registro.put("nome", this.binding.edTxtNome.text.toString())
-        registro.put("telefone", this.binding.edTxtTelefone.text.toString())
-
-        banco.update(
-            "cadastro",
-            registro,
-            "_id = ${this.binding.edTxtCodigo.text.toString()}",
-            null
+        val cadastro = Cadastro(
+            binding.edTxtCodigo.text.toString().toInt(),
+            binding.edTxtNome.text.toString(),
+            binding.edTxtTelefone.text.toString(),
         )
+
+        banco.alterar(cadastro)
 
         Toast.makeText(this, "Sucesso", Toast.LENGTH_SHORT).show()
     }
 
     fun btnExcluirClick() {
-        banco.delete("cadastro", "_id =  ${this.binding.edTxtCodigo.text.toString()}", null)
+        banco.excluir(binding.edTxtCodigo.text.toString().toInt())
 
         Toast.makeText(this, "Sucesso", Toast.LENGTH_SHORT).show()
     }
 
     fun btnPesquisarClick() {
-        val cursor: Cursor = banco.query(
-            "cadastro",
-            null,
-            "_id = ${this.binding.edTxtCodigo.text.toString()}",
-            null,
-            null,
-            null,
-            null
-        )
+        val cadastro: Cadastro? = banco.pesquisar(binding.edTxtCodigo.text.toString().toInt())
 
-        if (cursor.moveToNext()) {
-            binding.edTxtNome.setText(cursor.getString(1))
-            binding.edTxtTelefone.setText(cursor.getString(2))
+        if (cadastro != null) {
+            binding.edTxtNome.setText(cadastro.nome)
+            binding.edTxtTelefone.setText(cadastro.telefone)
         } else {
             Toast.makeText(this, "Registro não encontrado", Toast.LENGTH_SHORT).show()
         }
     }
 
     fun btnListarClick() {
-        val cursor = banco.query(
-            "cadastro",
-            null,
-            null,
-            null,
-            null,
-            null,
-            null
-        )
+        val cadastros = banco.listarCadastros()
 
         val saida = StringBuilder()
 
-        while (cursor.moveToNext()) {
-            saida.append(cursor.getString(NOME))
+        for (cadastro in cadastros) {
+            saida.append(cadastro.nome)
             saida.append(" - ")
-            saida.append(cursor.getString(TELEFONE))
+            saida.append(cadastro.telefone)
             saida.append("\n")
         }
 
@@ -136,11 +113,5 @@ class MainActivity : AppCompatActivity() {
             saida.toString(),
             Toast.LENGTH_SHORT
         ).show()
-    }
-
-    companion object {
-        private const val ID = 0
-        private const val NOME = 1
-        private const val TELEFONE = 2
     }
 }

@@ -102,7 +102,7 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(
         return cursor
     }
 
-    fun listarCadastros(): MutableList<Cadastro>? {
+    fun listarCadastros(): MutableList<Cadastro> {
         val banco = this.writableDatabase
 
         val cursor = banco.query(
