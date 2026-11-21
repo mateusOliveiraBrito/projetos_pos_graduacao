@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.br.mateus.posmoveis.appsqlite.adapter.ItemListaAdapter
 import com.br.mateus.posmoveis.appsqlite.database.DatabaseHandler
 import com.br.mateus.posmoveis.appsqlite.databinding.ActivityListarBinding
 
@@ -34,16 +35,10 @@ class ListarActivity : AppCompatActivity() {
     }
 
     private fun montarListaInicial() {
-        val cursor = banco.listarCursor()
+        val cadastros = banco.listarCadastros()
 
-        val adapter = SimpleCursorAdapter(
-            this,
-            android.R.layout.simple_list_item_2,
-            cursor,
-            arrayOf("nome", "telefone"),
-            intArrayOf(android.R.id.text1, android.R.id.text2),
-            0
-        )
-        bindingListar.lvCadastro.adapter = adapter
+        val listaAdapter = ItemListaAdapter(this, cadastros)
+
+        bindingListar.lvCadastro.adapter = listaAdapter
     }
 }
