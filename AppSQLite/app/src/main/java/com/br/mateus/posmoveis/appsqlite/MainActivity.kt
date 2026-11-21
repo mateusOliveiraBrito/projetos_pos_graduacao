@@ -1,6 +1,7 @@
 package com.br.mateus.posmoveis.appsqlite
 
 import android.content.ContentValues
+import android.content.Intent
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
@@ -97,7 +98,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun btnListarClick() {
-        val cadastros = banco.listarCadastros()
+
+        val i = Intent(this, ListarActivity::class.java)
+        startActivity(i)
+
+        /*val cadastros = banco.listarCadastros()
 
         val saida = StringBuilder()
 
@@ -112,6 +117,6 @@ class MainActivity : AppCompatActivity() {
             this,
             saida.toString(),
             Toast.LENGTH_SHORT
-        ).show()
+        ).show()*/
     }
 }
