@@ -38,10 +38,10 @@ class ListarActivity : AppCompatActivity() {
 
         val adapter = SimpleCursorAdapter(
             this,
-            android.R.layout.simple_list_item_1,
+            android.R.layout.simple_list_item_2,
             cursor,
-            arrayOf("nome"),
-            intArrayOf(android.R.id.text1),
+            arrayOf("nome", "telefone"),
+            intArrayOf(android.R.id.text1, android.R.id.text2),
             0
         )
         bindingListar.lvCadastro.adapter = adapter
